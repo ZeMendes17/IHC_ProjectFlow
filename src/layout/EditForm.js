@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import '../layout/MyForm.css';
 import Input from './Input';
 import TextArea from './TextArea';
+import { BsPencil } from 'react-icons/bs'
 
 function EditForm({ handleSubmit, projectData }) {
 
@@ -64,7 +65,7 @@ useEffect(() => {
       errors.name = "Project's name must have more than 3 characters'!"
     }
 
-    
+
     if(!values.budget) {
       errors.budget = "Project must have a valide budget!"
     } else if (values.budget < 0) {
@@ -98,7 +99,7 @@ useEffect(() => {
       {/* <Button onClick={() => setShowModal(true)}>Open Form Modal</Button> */}
       {/* <MyFormModal isOpen={showModal} onRequestClose={() => setShowModal(false)}>
       </MyFormModal> */}
-      <button className='bg-black relative left-[115px]' type="submit">Create</button>
+      <button className='bg-black relative left-[115px]' type="submit"> Save Changes</button>
     </form>
   );
 }
