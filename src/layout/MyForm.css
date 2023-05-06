@@ -1,0 +1,26 @@
+.MyForm {
+  width: 100%;
+  margin: 2em 0;
+}
+  
+  button {
+    padding: 10px 20px;
+    background-color: #222;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 200px;
+    align-self: left;
+    margin-top: 20px;
+    margin-left: 5px;
+  }
+
+
+  button:hover {
+    color: #5EB2FC;
+  }
+
+  
+

@@ -1,0 +1,7 @@
+.go_back_button {
+    background: none;
+    color: black;
+    position: relative;
+    margin-left: -80px;
+    text-align: center;
+}

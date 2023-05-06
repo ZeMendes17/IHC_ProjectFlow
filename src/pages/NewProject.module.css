@@ -1,0 +1,18 @@
+.NewProject {
+    width: 450px;
+    margin: 0 auto;
+    padding: 4em;
+}
+
+.NewProject h1 {
+    font-size: 2em;
+    margin-bottom: .5em;
+    font-family: 'Roboto Mono', monospace;
+    color: #000000;    
+}
+
+
+.NewProject p {
+    color: #7b7b7b;
+    padding-bottom: .5em;
+}

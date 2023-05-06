@@ -1,0 +1,19 @@
+.create_button {
+    background-color: #222;
+    color: #fff;
+    padding: .5em 1em;
+    text-decoration: none;
+    transition: .5s;
+}
+
+.create_button:hover {
+    color: #5EB2FC;
+}
+
+.my-button {
+    width: 150px !important;
+    height: 50px !important;
+    border: none;
+    justify-content: center !important;
+    align-items: center !important;
+  }
