@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import '../layout/MyForm.css';
+import '../layout/MyForm.module.css';
 import Input from './Input';
 import TextArea from './TextArea';
 import { BsPencil } from 'react-icons/bs'
