@@ -61,7 +61,7 @@
       "name": "projeto1",
       "budget": "20550",
       "description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "cost": 36,
+      "cost": null,
       "services": [
         {
           "name": "Filipe Obrist",
@@ -80,6 +80,9 @@
           "cost": "12",
           "description": "asdasdasdasdsadasdasdasdasdasdasdasdasdasdasdadasdsadasdadasdas",
           "id": "df093f82-b21a-419a-9c05-fb41c1cac581"
+        },
+        {
+          "id": "bff4f16d-feb2-488e-bafc-061ad8af4782"
         }
       ],
       "id": 5
@@ -136,12 +139,12 @@
       "id": 6
     },
     {
-      "name": "TESWTE",
-      "budget": "12222",
-      "description": "asdas asjdhjkwa fkçdokvçlcxmvk.mcxkvlcxkmv xckvmxnvklxcnvklcxnvklxcnv cxknv ",
+      "name": "projeto20",
+      "budget": "12000",
+      "description": "Este projeto terá de fazer...",
       "cost": 0,
       "services": [],
-      "id": 7
+      "id": 8
     }
   ]
 }
