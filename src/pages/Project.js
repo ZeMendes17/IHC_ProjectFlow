@@ -8,7 +8,7 @@ import EditForm from '../layout/EditForm'
 import Message from '../layout/Message'
 import { BsPencil } from 'react-icons/bs'
 import MyFormModal from '../layout/TaskForm'
-import Modal from 'react-modal';
+import Modal from '../layout/Modal';
 import TaskForm from '../layout/TaskForm'
 import ServiceCard from '../components/ServiceCard'
 
@@ -42,6 +42,7 @@ function Project () {
         }, 500)
     }, [id])
 
+    // edit project
     function editPost(project) {
         console.log(project)
 
@@ -89,6 +90,7 @@ function Project () {
             setType('error')
             project.services.pop()
             return false
+
         }
     
         // add task cost to project cost
@@ -110,7 +112,33 @@ function Project () {
         .catch(err => console.log(err))
     }
 
-    function removeService() {}
+    function removeService(id, cost) {
+        setMessage('')
+
+        const servicesUpdated = project.services.filter(
+            (service) => service.id !== id
+        )
+
+        const projectUpdated = project
+
+        projectUpdated.services = servicesUpdated
+        projectUpdated.cost = parseFloat(projectUpdated.cost) - parseFloat(cost)
+
+        fetch(`http://localhost:5000/projects/${projectUpdated.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(projectUpdated),
+        }).then((resp) => resp.json())
+        .then((data) => {
+            setProject(projectUpdated)
+            setServices(servicesUpdated)
+            setMessage('Task removed successfully!')
+            setType('sucess')
+        })
+        .catch(err => console.log(err))
+    }   
 
     function toggleProjectForm() {
         setShowProjectForm(!showProjectForm)
@@ -131,7 +159,9 @@ function Project () {
                             <button className={styles.btn} onClick={toggleProjectForm}>
                                 {!showProjectForm ? (
                                 <>
-                                    <BsPencil/> Edit
+                                    <svg className='w-5 inline-block' aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg> Edit
                                 </>
                                 ) : 'Close'}
                             </button>
@@ -141,10 +171,10 @@ function Project () {
                                         <span>Description:</span> {project.description}
                                     </p>
                                     <p>
-                                        <span>Total Budget:</span> €{project.budget}
+                                        <span>Total Budget:</span> {project.budget}€
                                     </p>
                                     <p>
-                                        <span>Budget Used:</span> €{project.cost}
+                                        <span>Budget Used:</span> {project.cost}€
                                     </p>
                                 </div>
                             ) : (
@@ -154,9 +184,9 @@ function Project () {
                             )}
                         </div>
                         <div className={styles.task_form_container}>
-                            <h2>Add a Task</h2>
-                            <TaskForm 
-                                btnText="Add Task"
+                            <Modal 
+                                toggleTaskForm = {toggleTaskForm}
+                                btnText="Confirm"
                                 handleSubmit={createService}
                                 projectData={project}
                             />

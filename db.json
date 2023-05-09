@@ -1,150 +1,20 @@
 {
   "projects": [
     {
-      "name": "Filipe Obrist",
-      "budget": "1200",
-      "description": "ola o meu nome ajsbkdjbajskhdasdkhsakhdkasjdhasjkdashjhsajkdhksahdjkashdsakads",
-      "cost": null,
-      "services": [
-        {
-          "id": "e29f4d5d-d034-464f-bfbc-1ba573938d79"
-        },
-        {
-          "id": "e29f4d5d-d034-464f-bfbc-1ba573938d79"
-        },
-        {
-          "id": "556e80c9-20fc-4e7f-a007-5141b106ca20",
-          "name": "123",
-          "cost": "1211212121111",
-          "description": "asdasdasdasdsadasdasdasdasdasdasdasdasdasdasdadasdsadasdadasdas"
-        },
-        {
-          "id": "6e656eca-178c-448f-9222-1edee21ea14d",
-          "name": "TESWTE",
-          "cost": "1212",
-          "description": "asdasdasdasdsadasdasdasdasdasdasdasdasdasdasdadasdsadasdadasdas"
-        },
-        {
-          "id": "358dfb6c-d489-4488-af24-ea9fd6f83ddf",
-          "name": "TESWTE1",
-          "cost": "121211111111111111111111111",
-          "description": "asdasdasdasdsadasdasdasdasdasdasdasdasdasdasdadasdsadasdadasdas"
-        },
-        {
-          "name": "teste",
-          "cost": "122",
-          "description": "asdasdasdasdsadasdasdasdasdasdasdasdasdasdasdadasdsadasdadasdas",
-          "id": "11cc6559-a589-434f-850d-40e060f0df1b"
-        },
-        {
-          "name": "testeeee",
-          "cost": "100000000000000000000",
-          "description": "asdasdasdasdsadasdasdasdasdasdasdasdasdasdasdadasdsadasdadasdas asdasd ananas",
-          "id": "8496d40f-bec3-4656-9408-dfce68c72861"
-        },
-        {
-          "name": "Project Flow",
-          "cost": "122212222",
-          "description": "asdasdasdasdsadasdasdasdasdasdasdasdasdasdasdadasdsadasdadasdas",
-          "id": "a4286f7c-5c96-4099-906b-93c361eadb15"
-        },
-        {
-          "name": "123",
-          "cost": "12",
-          "description": "asdasdasdasdsadasdasdasdasdasdasdasdasdasdasdadasdsadasdadasdas",
-          "id": "78c9e3b0-eaee-4836-8f1a-a366fc3dbc93"
-        }
-      ],
-      "id": 4
-    },
-    {
-      "name": "projeto1",
-      "budget": "20550",
-      "description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "cost": null,
-      "services": [
-        {
-          "name": "Filipe Obrist",
-          "cost": "12",
-          "description": "asdasdasdasdsadasdasdasdasdasdasdasdasdasdasdadasdsadasdadasdas",
-          "id": "2b894197-de36-4cea-876c-9b0e210de6bb"
-        },
-        {
-          "name": "Filipe Obrist22",
-          "cost": "12",
-          "description": "asdasdasdasdsadasdasdasdasdasdasdasdasdasdasdadasdsadasdadasdas",
-          "id": "df093f82-b21a-419a-9c05-fb41c1cac581"
-        },
-        {
-          "name": "Filipe Obrist22",
-          "cost": "12",
-          "description": "asdasdasdasdsadasdasdasdasdasdasdasdasdasdasdadasdsadasdadasdas",
-          "id": "df093f82-b21a-419a-9c05-fb41c1cac581"
-        },
-        {
-          "id": "bff4f16d-feb2-488e-bafc-061ad8af4782"
-        }
-      ],
-      "id": 5
-    },
-    {
-      "name": "projeto2",
-      "budget": "117",
-      "description": " bbbbbbbbbbbbbbbbbbbb",
-      "cost": 117,
-      "services": [
-        {
-          "name": "Task 2",
-          "cost": "10",
-          "id": "9e2ef0a6-9837-49ba-b938-d6b27eb3b75b",
-          "description": "asdasdasdasdsadasdasdasdasdasdasdasdasdasdasdadasdsadasdadasdas"
-        },
-        {
-          "name": "Task 3",
-          "cost": "100",
-          "id": "e7da425a-60be-4448-b418-bdf102a33135",
-          "description": "asdasdasdasdsadasdasdasdasdasdasdasdasdasdasdadasdsadasdadasdas"
-        },
-        {
-          "name": "TESWTE",
-          "cost": "1",
-          "description": "asdasdasdasdsadasdasdasdasdasdasdasdasdasdasdadasdsadasdadasdas",
-          "id": "6032c5ce-3131-467d-ab8b-0ca064f440c2"
-        },
-        {
-          "name": "TESWTE",
-          "cost": "2",
-          "description": "asdasdasdasdsadasdasdasdasdasdasdasdasdasdasdadasdsadasdadasdas",
-          "id": "d8d7815c-6254-4a05-92a4-529de46f3c7c"
-        },
-        {
-          "name": "TESWTE",
-          "cost": "2",
-          "description": "asdasdasdasdsadasdasdasdasdasdasdasdasdasdasdadasdsadasdadasdas",
-          "id": "d8d7815c-6254-4a05-92a4-529de46f3c7c"
-        },
-        {
-          "cost": "1",
-          "name": "qwe",
-          "description": "asdasdasdasdsadasdasdasdasdasdasdasdasdasdasdadasdsadasdadasdas",
-          "id": "95b2cb89-e477-4e75-95a3-95c0c9c4c22b"
-        },
-        {
-          "cost": "1",
-          "name": "12",
-          "description": "asdasdasdasdsadasdasdasdasdasdasdasdasdasdasdadasdsadasdadasdas",
-          "id": "1e856ed4-9139-4f9e-9abc-7f1bb116198b"
-        }
-      ],
-      "id": 6
-    },
-    {
-      "name": "projeto20",
-      "budget": "12000",
-      "description": "Este projeto terá de fazer...",
+      "budget": "999999999",
+      "name": "quintinha",
+      "description": "é uma quinta",
       "cost": 0,
       "services": [],
-      "id": 8
+      "id": 3
+    },
+    {
+      "name": "Project Test tasks",
+      "budget": "100",
+      "description": "this is a test project",
+      "cost": 0,
+      "services": [],
+      "id": 4
     }
   ]
 }
