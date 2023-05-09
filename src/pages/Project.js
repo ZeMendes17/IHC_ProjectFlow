@@ -42,6 +42,7 @@ function Project () {
         }, 500)
     }, [id])
 
+    // edit project
     function editPost(project) {
         console.log(project)
 
