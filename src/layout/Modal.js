@@ -1,23 +1,56 @@
 import React from "react";
 import Input from "../components/Input";
 import SubmitButton from "../components/SubmitButton";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Modal({handleSubmit, btnText, projectData}) {
   const [showModal, setShowModal] = React.useState(false);
   const [service, setService] = useState({});
-
+  const [errors, setErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false)
   function submit(e) {
     e.preventDefault()
-    setShowModal(false)
-    projectData.services.push(service)
-    handleSubmit(projectData)
+    setErrors(validate(service))
+    setIsSubmit(true)
   }
+
+  useEffect(() => {
+    // console.log(errors)
+    if(Object.keys(errors).length === 0 && isSubmit) {
+      setShowModal(false)
+      service.cost = parseInt(service.cost) // nao sei se é preciso
+      console.log(service)
+      projectData.services.push(service)
+      handleSubmit(projectData)
+    }
+  }, [errors])
 
   function handleChange(e) {
     setService({ ...service, [e.target.name]: e.target.value });
-    console.log(service)
+    // console.log(service)
   }
+
+  // validation
+  const validate = (values) => {
+    const err = {}
+    if(!values.name) {
+      err.name = "Task name is required!"
+    }
+    if(!values.cost) {
+      err.cost = "A cost is needed!"
+    }
+    if(!values.description) {
+      err.description = "Please give it a small description!"
+    }
+
+    return err;
+  }
+
+
+
+
+
+
   return (
     <>
       <button
@@ -59,6 +92,7 @@ export default function Modal({handleSubmit, btnText, projectData}) {
                 handleOnChange={handleChange}
               />
             </div>
+            <p2 className="text-red-600 ml-0">{errors.name}</p2>
             <div className="ml-4 mr-4">
               <Input type ="number" 
                 text="Cost" 
@@ -67,6 +101,8 @@ export default function Modal({handleSubmit, btnText, projectData}) {
                 handleOnChange={handleChange}
               />
             </div>
+            <p2 className="text-red-600 ml-0">{errors.cost}</p2>
+
             <div className="ml-4 mr-4">
               <Input type ="text" 
                 text="Description" 
@@ -75,6 +111,8 @@ export default function Modal({handleSubmit, btnText, projectData}) {
                 handleOnChange={handleChange}
               />
             </div>
+            <p2 className="text-red-600 ml-0">{errors.description}</p2>
+
 
             <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
                   <button
