@@ -1,11 +1,28 @@
 {
   "projects": [
     {
-      "budget": "999999999",
+      "budget": "1000",
       "name": "quintinha",
       "description": "é uma quinta",
-      "cost": 0,
-      "services": [],
+      "cost": 55,
+      "services": [
+        {
+          "name": "moranguinhos",
+          "cost": 12,
+          "description": "para a quintinha",
+          "start": "2023-05-16",
+          "end": "2023-05-24",
+          "id": "4b0d0dd3-72eb-4a12-a8f9-be613e502028"
+        },
+        {
+          "name": "BANANAS",
+          "cost": 43,
+          "description": "TAMBEM",
+          "start": "2023-05-23",
+          "end": "2023-05-27",
+          "id": "89db5f1d-42da-4fb6-a428-0843a8d40d26"
+        }
+      ],
       "id": 3
     }
   ]

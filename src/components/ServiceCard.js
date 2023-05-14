@@ -3,7 +3,7 @@ import styles from '../layout/ProjectCard.module.css'
 import { BsFillTrashFill} from 'react-icons/bs'
 
 
-function ServiceCard({id, name, cost, description, handleRemove}) {
+function ServiceCard({id, name, cost, description, start, end, handleRemove}) {
 
 
     const remove = (e) => {
@@ -18,6 +18,8 @@ function ServiceCard({id, name, cost, description, handleRemove}) {
                 <span>Cost:</span> €{cost}
             </p>
             <p>{description}</p>
+            <p><span>Start: </span>{start}</p>
+            <p><span>Due To: </span>{end}</p>
             <div className={styles.project_card_actions}>
                 <button onClick={remove}>
                     <BsFillTrashFill /> Remove

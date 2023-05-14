@@ -15,7 +15,7 @@ export default function Modal({handleSubmit, btnText, projectData}) {
   }
 
   useEffect(() => {
-    // console.log(errors)
+    console.log(errors)
     if(Object.keys(errors).length === 0 && isSubmit) {
       setShowModal(false)
       service.cost = parseFloat(service.cost) // nao sei se é preciso
@@ -41,6 +41,18 @@ export default function Modal({handleSubmit, btnText, projectData}) {
     }
     if(!values.description) {
       err.description = "Please give it a small description!"
+    }
+    if(!values.start) {
+      err.start = "Add a start date"
+    }
+    if(!values.end) {
+      err.end = "Add a end date"
+    }
+    if(new Date(values.end).getTime() < new Date(values.start).getTime()) {
+      err.end = "End Date can't be earlier than start date"
+    }
+    if(new Date() > new Date(values.end).getTime() || new Date() > new Date(values.start).getTime()) {
+      err.end = "Cannot define dates in the past"
     }
 
     return err;
@@ -91,8 +103,8 @@ export default function Modal({handleSubmit, btnText, projectData}) {
                 placeholder="Name of the task"
                 handleOnChange={handleChange}
               />
-            </div>
             <p2 className="text-red-600 ml-0">{errors.name}</p2>
+            </div>
             <div className="ml-4 mr-4">
               <Input type ="number" 
                 text="Cost" 
@@ -100,8 +112,8 @@ export default function Modal({handleSubmit, btnText, projectData}) {
                 placeholder="Cost of the task"
                 handleOnChange={handleChange}
               />
-            </div>
             <p2 className="text-red-600 ml-0">{errors.cost}</p2>
+            </div>
 
             <div className="ml-4 mr-4">
               <Input type ="text" 
@@ -110,8 +122,26 @@ export default function Modal({handleSubmit, btnText, projectData}) {
                 placeholder="Description of the task"
                 handleOnChange={handleChange}
               />
-            </div>
             <p2 className="text-red-600 ml-0">{errors.description}</p2>
+            </div>
+
+            <div className="ml-4 mr-4">
+              <Input type ="date" 
+                text="Start Date" 
+                name="start" 
+                handleOnChange={handleChange}
+              />
+            <p2 className="text-red-600 ml-0">{errors.start}</p2>
+
+              <Input type ="date" 
+                text="End Date" 
+                name="end" 
+                handleOnChange={handleChange}
+              />
+
+            <p2 className="text-red-600 ml-0">{errors.end}</p2>
+
+            </div>
 
 
             <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
