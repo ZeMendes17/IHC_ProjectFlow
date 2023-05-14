@@ -7,14 +7,6 @@
       "cost": 0,
       "services": [],
       "id": 3
-    },
-    {
-      "name": "Project Test tasks",
-      "budget": "100",
-      "description": "this is a test project",
-      "cost": null,
-      "services": [],
-      "id": 4
     }
   ]
 }

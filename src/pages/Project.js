@@ -7,9 +7,7 @@ import Container from '../layout/Container'
 import EditForm from '../layout/EditForm'
 import Message from '../layout/Message'
 import { BsPencil } from 'react-icons/bs'
-import MyFormModal from '../layout/TaskForm'
 import Modal from '../layout/Modal';
-import TaskForm from '../layout/TaskForm'
 import ServiceCard from '../components/ServiceCard'
 
 function Project () {
@@ -107,6 +105,8 @@ function Project () {
         .then((data) => {
             // exibir tasks
             console.log(data)
+            setMessage('Task added successfully!')
+            setType('sucess')
             setShowTaskForm(false)
         })
         .catch(err => console.log(err))
@@ -153,16 +153,16 @@ function Project () {
             {project.name ? (
                 <div className={styles.project_details}>
                     <Container customClass="column">
-                        {message && <Message type={type} msg={message}/>}
+                        {message && <Message type={type} msg={message} />}
                         <div className={styles.details_container}>
                             <h1>Project : {project.name}</h1>
                             <button className={styles.btn} onClick={toggleProjectForm}>
                                 {!showProjectForm ? (
-                                <>
-                                    <svg className='w-5 inline-block' aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-  <path d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" stroke-linecap="round" stroke-linejoin="round"></path>
-</svg> Edit
-                                </>
+                                    <>
+                                        <svg className='w-5 inline-block' aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </svg> Edit
+                                    </>
                                 ) : 'Close'}
                             </button>
                             {!showProjectForm ? (
@@ -179,35 +179,31 @@ function Project () {
                                 </div>
                             ) : (
                                 <div className={styles.project_info}>
-                                    <EditForm handleSubmit={editPost} btnText="Conclude Edit" projectData={project}/>
+                                    <EditForm handleSubmit={editPost} btnText="Conclude Edit" projectData={project} />
                                 </div>
                             )}
                         </div>
                         <div className={styles.task_form_container}>
-                            <Modal 
-                                toggleTaskForm = {toggleTaskForm}
+                            <Modal
+                                toggleTaskForm={toggleTaskForm}
                                 btnText="Confirm"
                                 handleSubmit={createService}
-                                projectData={project}
-                            />
-                        </div>    
-                            <h2>Tasks</h2>
-                            <Container customClass="start">
-                                {services.length > 0 &&
-                                    services.map((service) => (
-                                        <ServiceCard 
-                                            id={service.id}
-                                            name={service.name}
-                                            description={service.description}
-                                            cost={service.cost}
-                                            key={service.id}
-                                            handleRemove={removeService}
-                                        />
-                                    ))
-                                
-                                }
-                                {services.length == 0 && <p>No tasks were added.</p>}
-                            </Container>
+                                projectData={project} />
+                        </div>
+                        <h2>Tasks</h2>
+                        <Container customClass="start">
+                            {services.length > 0 &&
+                                services.map((service) => (
+                                    <ServiceCard
+                                        id={service.id}
+                                        name={service.name}
+                                        description={service.description}
+                                        cost={service.cost}
+                                        key={service.id}
+                                        handleRemove={removeService} />
+                                ))}
+                            {services.length == 0 && <p>No tasks were added.</p>}
+                        </Container>
                     </Container>
                 </div>
             ): (

@@ -18,7 +18,7 @@ export default function Modal({handleSubmit, btnText, projectData}) {
     // console.log(errors)
     if(Object.keys(errors).length === 0 && isSubmit) {
       setShowModal(false)
-      service.cost = parseInt(service.cost) // nao sei se é preciso
+      service.cost = parseFloat(service.cost) // nao sei se é preciso
       console.log(service)
       projectData.services.push(service)
       handleSubmit(projectData)
