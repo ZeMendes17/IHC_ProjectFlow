@@ -57,29 +57,28 @@ function MyProjects() {
             <div className={styles.title_container}>
                 <h1 className="text-3xl font-bold underline">
                     Projects
-                </h1> 
+                </h1>
                 <LinkButton to="../NewProject" text="Create Project" />
             </div>
             {message && <Message type="sucess" msg={message} />}
             {projectMessage && <Message type="sucess" msg={projectMessage} />}
             <Container customClass="start">
-                {projects.length > 0 && 
-                    projects.map((project) => <ProjectCard 
-                    name={project.name}
-                    id={project.id}
-                    budget={project.budget}
-                    description={project.description}
-                    key={project.id}
-                    handleRemove={removeProject}
-                    />)}
+                {projects.length > 0 &&
+                    projects.map((project) => <ProjectCard
+                        name={project.name}
+                        id={project.id}
+                        budget={project.budget}
+                        description={project.description}
+                        key={project.id}
+                        handleRemove={removeProject} />)}
                 {!removeLoading && <Loading />}
                 {removeLoading && projects.length === 0 && (
                     <p>No Projects Created!</p>
                 )}
-                {/* <Card />*/} 
+                {/* <Card />*/}
             </Container>
-            
-               
+
+
         </div>
     )
 }
