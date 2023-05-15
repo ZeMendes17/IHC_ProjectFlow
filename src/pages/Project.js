@@ -118,12 +118,17 @@ function Project () {
         const servicesUpdated = project.services.filter(
             (service) => service.id !== id
         )
-
+        
         const projectUpdated = project
 
-        projectUpdated.services = servicesUpdated
+        const projectConfirmed = project.services.filter( 
+            (service) => service.id === id && service.status === 'confirmed'
+        )
         
-        if ( project.services.filter( (service) => service.id === id && service.status !== 'confirmed')) {
+        projectUpdated.services = servicesUpdated
+
+        
+        if ( projectConfirmed.length == 0) {
             projectUpdated.cost = parseFloat(projectUpdated.cost) - parseFloat(cost)
         }
 
