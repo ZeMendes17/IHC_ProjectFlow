@@ -1,14 +1,24 @@
-import { BsTrashFill } from 'react-icons/bs'
 import styles from '../layout/ProjectCard.module.css'
 import { BsFillTrashFill} from 'react-icons/bs'
+import { BsCheckLg } from 'react-icons/bs'
+import {useState} from 'react'
 
 
-function ServiceCard({id, name, cost, description, start, end, handleRemove}) {
-
+function ServiceCard({id, name, cost, description, start, end, handleRemove, handleConfirm}) {
+    const [isDisabled, setIsDisabled] = useState(false);
+    const [isHidden, setIsHidden] = useState(false);
 
     const remove = (e) => {
         e.preventDefault()
         handleRemove(id, cost)
+    }
+
+    const confirm = (e) => {
+        e.preventDefault()
+        console.log('confirm')
+        setIsDisabled(true);
+        setIsHidden(true);
+        handleConfirm(id)
     }
 
     return (
@@ -24,6 +34,14 @@ function ServiceCard({id, name, cost, description, start, end, handleRemove}) {
                 <button onClick={remove}>
                     <BsFillTrashFill /> Remove
                 </button>
+                {!isHidden ? (
+                <buttonConfirm onClick={confirm} disabled={isDisabled}>
+                    <BsCheckLg /> Confirm
+                </buttonConfirm>
+                ): (
+                    <p style={{ color: 'green' }}>Task Completed!</p>
+                  )
+                }
             </div>
         </div>
     )

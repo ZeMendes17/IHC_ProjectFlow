@@ -30,6 +30,7 @@
 }
 
 .project_card_actions a,
+.project_card_actions buttonConfirm,
 .project_card_actions button {
     text-decoration: none;
     border: none;
@@ -60,4 +61,9 @@
 .project_card_actions button:hover {
     background-color: #222;
     color: red;
+}
+
+.project_card_actions buttonConfirm:hover {
+    background-color: #222;
+    color: green;
 }

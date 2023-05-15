@@ -122,7 +122,10 @@ function Project () {
         const projectUpdated = project
 
         projectUpdated.services = servicesUpdated
-        projectUpdated.cost = parseFloat(projectUpdated.cost) - parseFloat(cost)
+        
+        if ( project.services.filter( (service) => service.id === id && service.status !== 'confirmed')) {
+            projectUpdated.cost = parseFloat(projectUpdated.cost) - parseFloat(cost)
+        }
 
         fetch(`http://localhost:5000/projects/${projectUpdated.id}`, {
             method: 'PATCH',
@@ -139,6 +142,36 @@ function Project () {
         })
         .catch(err => console.log(err))
     }   
+
+    function confirmService(id) {
+        setMessage('')
+
+        const servicesUpdated = project.services.map((service) => {
+            if (service.id === id) {
+                service.status = 'confirmed'
+            }
+            return service
+        })
+
+        const projectUpdated = project
+
+        projectUpdated.services = servicesUpdated
+
+        fetch(`http://localhost:5000/projects/${projectUpdated.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(projectUpdated),
+        }).then((resp) => resp.json())
+        .then((data) => {
+            setProject(projectUpdated)
+            setServices(servicesUpdated)
+            setMessage('Task confirmed successfully!')
+            setType('sucess')
+        })
+        .catch(err => console.log(err))
+    }
 
     function toggleProjectForm() {
         setShowProjectForm(!showProjectForm)
@@ -202,7 +235,8 @@ function Project () {
                                         start={service.start}
                                         end={service.end}
                                         key={service.id}
-                                        handleRemove={removeService} />
+                                        handleRemove={removeService}
+                                        handleConfirm={confirmService} />
                                 ))}
                             {services.length == 0 && <p>No tasks were added.</p>}
                         </Container>
