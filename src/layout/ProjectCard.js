@@ -18,9 +18,9 @@ function ProjectCard ({id, name, budget, description, handleRemove}) {
                 <Link to={`/project/${id}`}> 
                      View
                 </Link>
-                <button onClick={remove}>
-                    <BsFillTrashFill /> Delete
-                </button>
+                <buttonRemove onClick={remove}>
+                    <BsFillTrashFill />
+                </buttonRemove>
             </div>
         </div>
     )

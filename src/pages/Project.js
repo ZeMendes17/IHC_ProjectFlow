@@ -9,9 +9,10 @@ import Message from '../layout/Message'
 import { BsPencil } from 'react-icons/bs'
 import Modal from '../layout/Modal';
 import ServiceCard from '../components/ServiceCard'
+import ServiceCardConfirmed from '../components/ServiceCardConfirmed'
 
 function Project () {
-
+    const [flag, setFlag] = useState(false)
     const { id } = useParams()
     console.log(id)
     const [project, setProject] = useState([])
@@ -20,6 +21,7 @@ function Project () {
     const [showTaskForm, setShowTaskForm] = useState(false)
     const [message, setMessage] = useState()
     const [type, setType] = useState()
+    const [servicesConfirmed, setServicesConfirmed] = useState([])
 
     useEffect(() => {
 
@@ -75,6 +77,7 @@ function Project () {
 
     function createService(project) {
         setMessage('')
+
         // last task
         const lastService = project.services[project.services.length - 1]
         lastService.id = uuidv4()
@@ -90,7 +93,8 @@ function Project () {
             return false
 
         }
-    
+
+        
         // add task cost to project cost
         project.cost = newCost
     
@@ -128,7 +132,7 @@ function Project () {
         projectUpdated.services = servicesUpdated
 
         
-        if ( projectConfirmed.length == 0) {
+        if ( projectConfirmed.length === 0) {
             projectUpdated.cost = parseFloat(projectUpdated.cost) - parseFloat(cost)
         }
 
@@ -157,6 +161,10 @@ function Project () {
             }
             return service
         })
+
+        if (servicesUpdated.length === 0) {
+            setFlag(true)
+        }
 
         const projectUpdated = project
 
@@ -231,7 +239,7 @@ function Project () {
                         <h2>Tasks</h2>
                         <Container customClass="start">
                             {services.length > 0 &&
-                                services.map((service) => (
+                                services.map((service) => (service.status !== 'confirmed') && (
                                     <ServiceCard
                                         id={service.id}
                                         name={service.name}
@@ -243,7 +251,23 @@ function Project () {
                                         handleRemove={removeService}
                                         handleConfirm={confirmService} />
                                 ))}
-                            {services.length == 0 && <p>No tasks were added.</p>}
+                            {services.length === 0 && <p>No tasks were added.</p>}
+                        </Container>
+                        <h2>Tasks Completed</h2>
+                        <Container customClass="start">
+                            {services.length > 0 &&
+                                services.map((service) => ( service.status === 'confirmed') && (
+                                    <ServiceCardConfirmed
+                                        id={service.id}
+                                        name={service.name}
+                                        description={service.description}
+                                        cost={service.cost}
+                                        start={service.start}
+                                        end={service.end}
+                                        key={service.id}
+                                         />
+                                ))}
+                            {(services.length === 0 || flag) && <p>No tasks were completed.</p>}
                         </Container>
                     </Container>
                 </div>

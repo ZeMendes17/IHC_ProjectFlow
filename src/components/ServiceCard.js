@@ -31,13 +31,13 @@ function ServiceCard({id, name, cost, description, start, end, handleRemove, han
             <p><span>Start: </span>{start}</p>
             <p><span>Due To: </span>{end}</p>
             <div className={styles.project_card_actions}>
-                <button onClick={remove}>
-                    <BsFillTrashFill /> Remove
-                </button>
-                {!isHidden ? (
-                <buttonConfirm onClick={confirm} disabled={isDisabled}>
-                    <BsCheckLg /> Confirm
-                </buttonConfirm>
+
+            {!isHidden ? (
+                <><buttonConfirm onClick={confirm} disabled={isDisabled}>
+                        <BsCheckLg /> Complete
+                    </buttonConfirm><buttonRemove onClick={remove}>
+                            <BsFillTrashFill />
+                        </buttonRemove></>
                 ): (
                     <p style={{ color: 'green' }}>Task Completed!</p>
                   )
