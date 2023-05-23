@@ -2,6 +2,12 @@ import { useState, useEffect } from 'react';
 import '../layout/MyForm.module.css';
 import Input from './Input';
 import TextArea from './TextArea';
+import img1 from '../img/1.jpg'
+import img2 from '../img/2.jpg'
+import img3 from '../img/3.jpg'
+import img4 from '../img/4.jpg'
+import img5 from '../img/5.jpg'
+import img6 from '../img/6.jpg'
 
 function MyForm({ handleSubmit, projectData }) {
 
@@ -36,11 +42,18 @@ function MyForm({ handleSubmit, projectData }) {
 
   }
 
+  function randomPic() {
+    const imgs = [img1, img2, img3, img4, img5, img6];
+    const randomIndex = Math.floor(Math.random() * imgs.length);
+    return imgs[randomIndex];
+  }
+
 // validation
 useEffect(() => {
   console.log(formErrors)
   if(Object.keys(formErrors).length === 0 && isSubmit) {
     console.log(project)
+    project.image = randomPic()
     handleSubmit(project)
   }
 }, [formErrors])
@@ -88,7 +101,7 @@ useEffect(() => {
       </div>
       <p2 className='text-red-600'>{formErrors.name}</p2>
       <div>
-      <Input type="number" text="Total Budget" placeholder="Insert Project's Budget" name="budget" handleOnChange={handleChange} value={project.budget? project.budget : ''} />
+      <Input type="number" text="Maximum Budget" placeholder="Insert Project's Budget" name="budget" handleOnChange={handleChange} value={project.budget? project.budget : ''} />
       </div>
       <p2 className='text-red-600'>{formErrors.budget}</p2>
       <div>

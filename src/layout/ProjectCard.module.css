@@ -4,6 +4,7 @@
     border-radius: 5px;
     width: 24%;
     margin: 1%;
+    background-color: #cccccc;
 }
 
 .project_card h1 {
@@ -12,6 +13,8 @@
     padding: 0.4em;
     margin-bottom: 1.3em;
     font-size: 1.3em;
+    border-radius: 35px;
+    text-align: center;
 }
 
 .project_card p {

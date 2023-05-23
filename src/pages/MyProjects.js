@@ -56,7 +56,7 @@ function MyProjects() {
         <div className={styles.myproject_container}>
             <div className={styles.title_container}>
                 <h1 className="text-3xl font-bold underline">
-                    Projects
+                    My Projects
                 </h1>
                 <LinkButton to="../NewProject" text="Create Project" />
             </div>
@@ -69,6 +69,7 @@ function MyProjects() {
                         id={project.id}
                         budget={project.budget}
                         description={project.description}
+                        image={project.image}
                         key={project.id}
                         handleRemove={removeProject} />)}
                 {!removeLoading && <Loading />}
