@@ -19,9 +19,9 @@ function ProjectCard ({id, name, budget, description, image, handleRemove}) {
                 <Link to={`/project/${id}`}> 
                      Manage
                 </Link>
-                <button onClick={remove}>
-                    <BsFillTrashFill /> Delete
-                </button>
+                <buttonRemove onClick={remove}>
+                    <BsFillTrashFill />
+                </buttonRemove>
             </div>
         </div>
     )
