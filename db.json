@@ -46,7 +46,48 @@
           "id": "44405f36-a983-4fab-856c-7a914eac9d8d"
         }
       ],
-      "id": 3
+      "id": 3,
+      "status": "confirmed"
+    },
+    {
+      "name": "TESWTE1",
+      "budget": "1223",
+      "description": "sadasdasdasdasdasdsa",
+      "image": "/static/media/3.20235bd15a09796e34d9.jpg",
+      "cost": 1,
+      "services": [
+        {
+          "name": "123213",
+          "cost": 1,
+          "description": "Do This",
+          "start": "2023-05-25",
+          "end": "2023-05-31",
+          "id": "f0321e5d-c0f3-4ca0-a8b0-3d8d24919520",
+          "status": "confirmed"
+        }
+      ],
+      "id": 4,
+      "status": "confirmed"
+    },
+    {
+      "name": "Project Flow",
+      "budget": "12213213",
+      "description": "asdasdasdasdsa",
+      "image": "/static/media/3.20235bd15a09796e34d9.jpg",
+      "cost": 1,
+      "services": [
+        {
+          "name": "Quinta Familiar",
+          "cost": 1,
+          "description": "Do This",
+          "start": "2023-05-25",
+          "end": "2023-05-31",
+          "id": "4c7adab5-f7c9-4740-8fa7-9c4e6c14ba95",
+          "status": "confirmed"
+        }
+      ],
+      "id": 5,
+      "status": "confirmed"
     }
   ]
 }

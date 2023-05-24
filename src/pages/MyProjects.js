@@ -10,6 +10,7 @@ import { useLocation } from "react-router-dom"
 import ProjectCardConfirmed from "../components/ProjectCardConfirmed"
 
 function MyProjects() {
+    const [type, setType] = useState('')
     const [flag, setFlag] = useState(true)
     const location = useLocation()
     const [projects, setProjects] = useState([])
@@ -57,12 +58,21 @@ function MyProjects() {
     function confirmProject(id) {
         setProjectMessage('');
 
+        setProjectMessage('Project Has Tasks Not Completed!');
+        setType("error");
+
         const projectsUpdated = projects.map((project) => {
           if (project.id === id) {
-            return { ...project, status: 'confirmed' };
-          }
+            if (project.services.every((service) => service.status === 'confirmed')) {
+                setProjectMessage('Project confirmed successfully!');
+                setType("sucess");
+                return { ...project, status: 'confirmed' };
+                
+            }
+        }
           return project;
         });
+
       
         if (projectsUpdated.length === 0) {
           setFlag(true);
@@ -82,7 +92,6 @@ function MyProjects() {
           .then((resp) => resp.json())
           .then((data) => {
             setProjects(projectsUpdated);
-            setProjectMessage('Project confirmed successfully!');
           })
           .catch((err) => console.log(err));
     }
@@ -90,7 +99,7 @@ function MyProjects() {
     return (
         <div className={styles.myproject_container}>
             {message && <Message type="sucess" msg={message} />}
-            {projectMessage && <Message type="sucess" msg={projectMessage} />}
+            {projectMessage && <Message type={type} msg={projectMessage} />}
             <div className={styles.title_container}>
                 <h1 className="text-3xl font-bold underline">
                     My Projects
@@ -128,8 +137,7 @@ function MyProjects() {
                         image={project.image}
                         key={project.id}
                         />))}
-                {!removeLoading && <Loading />}
-                {removeLoading && (projects.length === 0 ) && (
+                {projects.length === 0 && (
                     <p>No Projects Completed!</p>
                 )}
                 {/* <Card />*/}
