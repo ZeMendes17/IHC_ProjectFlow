@@ -71,6 +71,47 @@
     border-radius: 6px;
 }
 
+.project_card_actions buttonConfirmProject {
+    text-decoration: none;
+    border: none;
+    background-color: #FFF;
+    color: #222;
+    font-size: .9em;
+    padding: 0.6em 1em;
+    margin-right: 1em;
+    margin-left: 160px;
+    cursor: pointer;
+    border: 1px solid #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    width: 50px !important;
+    margin-top: 1.5em;
+    border-radius: 6px;
+}
+
+.project_card_actions buttonRemoveProject {
+    text-decoration: none;
+    border: none;
+    background-color: #FFF;
+    color: #222;
+    font-size: .9em;
+    padding: 0.6em 1em;
+    margin-right: 1em;
+    margin-left: 1px;
+    cursor: pointer;
+    border: 1px solid #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    width: 50px !important;
+    margin-top: 1.5em;
+    border-radius: 6px;
+}
+
+
 .project_card_actions buttonRemove {
     text-decoration: none;
     border: none;
@@ -107,6 +148,16 @@
 .project_card_actions buttonRemove:hover {
     background-color: #222;
     color: red;
+}
+
+.project_card_actions buttonRemoveProject:hover {
+    background-color: #222;
+    color: red;
+}
+
+.project_card_actions buttonConfirmProject:hover {
+    background-color: #222;
+    color: green;
 }
 
 .project_card_actions buttonConfirm:hover {

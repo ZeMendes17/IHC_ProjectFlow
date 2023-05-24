@@ -1,32 +1,33 @@
 {
   "projects": [
     {
-      "name": "Quinta familiar",
-      "budget": "200",
-      "description": "ola isto é uma quinta familiar",
-      "image": "/static/media/1.fcf8f6f108d7db2587ed.jpg",
-      "cost": 12,
-      "services": [
-        {
-          "name": "idmadhio",
-          "cost": 12,
-          "description": "smidabkjnhcja",
-          "start": "2023-05-24",
-          "end": "2023-05-31",
-          "id": "557b30ab-ed42-4c34-a79c-c7b2d84c1878",
-          "status": "confirmed"
-        }
-      ],
-      "id": 1
-    },
-    {
-      "name": "Projetito",
-      "budget": "123",
-      "description": ",dlspmdahod",
-      "image": "/static/media/4.bedd5a6287694c96f14a.jpg",
+      "name": "Filipe Obrist",
+      "budget": "1222",
+      "description": "sdsdhsdgadbjaskdsd",
+      "image": "/static/media/3.20235bd15a09796e34d9.jpg",
       "cost": 0,
       "services": [],
-      "id": 2
+      "id": 1,
+      "status": "confirmed"
+    },
+    {
+      "name": "TESWTE",
+      "budget": "200000",
+      "description": "hsaidgiuowjdioahsiod ",
+      "image": "/static/media/3.20235bd15a09796e34d9.jpg",
+      "cost": 12222,
+      "services": [
+        {
+          "name": "Project Flow",
+          "cost": 12222,
+          "description": "sadasdasd",
+          "start": "2023-05-25",
+          "end": "2023-05-31",
+          "id": "df543c56-6a59-4683-bfed-4c9c0f6d9089"
+        }
+      ],
+      "id": 2,
+      "status": "confirmed"
     }
   ]
 }

@@ -7,8 +7,10 @@ import Loading from "../layout/Loading"
 import { useState, useEffect } from "react"
 import Message from "../layout/Message"
 import { useLocation } from "react-router-dom"
+import ProjectCardConfirmed from "../components/ProjectCardConfirmed"
 
 function MyProjects() {
+    const [flag, setFlag] = useState(true)
     const location = useLocation()
     const [projects, setProjects] = useState([])
     const [removeLoading, setRemoveLoading] = useState(false)
@@ -52,29 +54,83 @@ function MyProjects() {
         .catch(err => console.log(err))
     }
 
+    function confirmProject(id) {
+        setProjectMessage('');
+
+        const projectsUpdated = projects.map((project) => {
+          if (project.id === id) {
+            return { ...project, status: 'confirmed' };
+          }
+          return project;
+        });
+      
+        if (projectsUpdated.length === 0) {
+          setFlag(true);
+        }
+        else { setFlag(false);}
+      
+
+        const projectToUpdate = projectsUpdated.find((project) => project.id === id);
+
+        fetch(`http://localhost:5000/projects/${id}`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(projectToUpdate),
+        })
+          .then((resp) => resp.json())
+          .then((data) => {
+            setProjects(projectsUpdated);
+            setProjectMessage('Project confirmed successfully!');
+          })
+          .catch((err) => console.log(err));
+    }
+
     return (
         <div className={styles.myproject_container}>
+            {message && <Message type="sucess" msg={message} />}
+            {projectMessage && <Message type="sucess" msg={projectMessage} />}
             <div className={styles.title_container}>
                 <h1 className="text-3xl font-bold underline">
                     My Projects
                 </h1>
                 <LinkButton to="../NewProject" text="Create Project" />
             </div>
-            {message && <Message type="sucess" msg={message} />}
-            {projectMessage && <Message type="sucess" msg={projectMessage} />}
             <Container customClass="start">
                 {projects.length > 0 &&
-                    projects.map((project) => <ProjectCard
+                    projects.map((project) => (project.status !== 'confirmed') && (<ProjectCard
                         name={project.name}
                         id={project.id}
                         budget={project.budget}
                         description={project.description}
                         image={project.image}
                         key={project.id}
-                        handleRemove={removeProject} />)}
+                        handleRemove={removeProject} 
+                        handleConfirm={confirmProject}
+                        />))}
                 {!removeLoading && <Loading />}
                 {removeLoading && projects.length === 0 && (
                     <p>No Projects Created!</p>
+                )}
+                {/* <Card />*/}
+            </Container>
+            <h1 className="text-3xl font-bold underline">
+                    Projects Completed
+            </h1>
+            <Container customClass="start">
+                {projects.length > 0  &&
+                    projects.map((project) => (project.status === 'confirmed') && (<ProjectCardConfirmed
+                        name={project.name}
+                        id={project.id}
+                        budget={project.budget}
+                        description={project.description}
+                        image={project.image}
+                        key={project.id}
+                        />))}
+                {!removeLoading && <Loading />}
+                {removeLoading && (projects.length === 0 ) && (
+                    <p>No Projects Completed!</p>
                 )}
                 {/* <Card />*/}
             </Container>

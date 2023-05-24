@@ -202,15 +202,17 @@ function Project () {
                         {message && <Message type={type} msg={message} />}
                         <div className={styles.details_container}>
                             <h1>Project : {project.name}</h1>
-                            <button className={styles.btn} onClick={toggleProjectForm}>
-                                {!showProjectForm ? (
-                                    <>
-                                        <svg className='w-5 inline-block' aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" stroke-linecap="round" stroke-linejoin="round"></path>
-                                        </svg> Edit
-                                    </>
-                                ) : 'Close'}
-                            </button>
+                            {project.status !== 'confirmed' && (
+                                <button className={styles.btn} onClick={toggleProjectForm}>
+                                    {!showProjectForm ? (
+                                        <>
+                                            <svg className='w-5 inline-block' aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            </svg> Edit
+                                        </>
+                                    ) : 'Close'}
+                                </button>
+                            )}   
                             {!showProjectForm ? (
                                 <div className={styles.project_info}>
                                     <p>
@@ -229,13 +231,15 @@ function Project () {
                                 </div>
                             )}
                         </div>
-                        <div className={styles.task_form_container}>
-                            <Modal
-                                toggleTaskForm={toggleTaskForm}
-                                btnText="Confirm"
-                                handleSubmit={createService}
-                                projectData={project} />
-                        </div>
+                        {project.status !== 'confirmed' && (
+                            <div className={styles.task_form_container}>
+                                <Modal
+                                    toggleTaskForm={toggleTaskForm}
+                                    btnText="Confirm"
+                                    handleSubmit={createService}
+                                    projectData={project} />
+                            </div>
+                        )}
                         <h2>Tasks</h2>
                         <Container customClass="start">
                             {services.length > 0 &&
