@@ -23,11 +23,30 @@
           "description": "sadasdasd",
           "start": "2023-05-25",
           "end": "2023-05-31",
-          "id": "df543c56-6a59-4683-bfed-4c9c0f6d9089"
+          "id": "df543c56-6a59-4683-bfed-4c9c0f6d9089",
+          "status": "confirmed"
         }
       ],
       "id": 2,
       "status": "confirmed"
+    },
+    {
+      "name": "daaca",
+      "budget": "12",
+      "description": "dsaxdzaagrsgdzxg",
+      "image": "/static/media/1.fcf8f6f108d7db2587ed.jpg",
+      "cost": 12,
+      "services": [
+        {
+          "name": "dadaada",
+          "cost": 12,
+          "description": "dazda",
+          "end": "2023-05-25",
+          "start": "2023-05-24",
+          "id": "44405f36-a983-4fab-856c-7a914eac9d8d"
+        }
+      ],
+      "id": 3
     }
   ]
 }

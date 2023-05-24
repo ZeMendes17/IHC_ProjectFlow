@@ -18,7 +18,7 @@ function ProjectCardConfirmed({id, name, budget, cost, description, image, start
             <Link to={`/project/${id}`}> 
                      View
                 </Link>
-                <p style={{ color: 'green' }}>Project Completed!</p>
+                <p style={{ color: 'green' }} className='mt-9 ml-28'>Project Completed!</p>
             </div>
         </div>
     )

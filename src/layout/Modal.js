@@ -43,7 +43,7 @@ export default function Modal({handleSubmit, btnText, projectData}) {
       err.description = "Please give it a small description!"
     }
     if(!values.start) {
-      err.start = "Add a start date"
+      values.start = new Date().toISOString().split('T')[0]
     }
     if(!values.end) {
       err.end = "Add a end date"
@@ -51,9 +51,20 @@ export default function Modal({handleSubmit, btnText, projectData}) {
     if(new Date(values.end).getTime() < new Date(values.start).getTime()) {
       err.end = "End Date can't be earlier than start date"
     }
-    if(new Date() > new Date(values.end).getTime() || new Date() > new Date(values.start).getTime()) {
-      err.end = "Cannot define dates in the past"
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Reset the time to midnight
+
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1); // Get tomorrow's date
+    tomorrow.setHours(0, 0, 0, 0); // Reset the time to midnight
+
+    const selectedStartDate = new Date(values.start);
+    const selectedEndDate = new Date(values.end);
+
+    if (selectedStartDate < today || selectedEndDate < today) {
+      err.end = "Cannot define dates in the past";
     }
+
 
     return err;
   }
