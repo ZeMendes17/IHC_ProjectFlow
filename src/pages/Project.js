@@ -219,7 +219,7 @@ function Project () {
                                         <span>Description:</span> {project.description}
                                     </p>
                                     <p>
-                                        <span>Total Budget:</span> {project.budget}€
+                                        <span>Maximum Budget:</span> {project.budget}€
                                     </p>
                                     <p>
                                         <span>Budget Used:</span> {project.cost}€
