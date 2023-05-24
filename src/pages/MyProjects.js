@@ -51,6 +51,7 @@ function MyProjects() {
         .then(data => {
             setProjects(projects.filter(project => project.id !== id))
             setProjectMessage('Project removed successfully!')
+            setType("sucess");
         })
         .catch(err => console.log(err))
     }
