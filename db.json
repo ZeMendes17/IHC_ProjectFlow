@@ -31,7 +31,7 @@
       "status": "confirmed"
     },
     {
-      "name": "daaca",
+      "name": "Projetito",
       "budget": "12",
       "description": "dsaxdzaagrsgdzxg",
       "image": "/static/media/1.fcf8f6f108d7db2587ed.jpg",
@@ -47,6 +47,26 @@
         }
       ],
       "id": 3
+    },
+    {
+      "name": "Quinta",
+      "budget": "1500",
+      "description": "qbjngsxahjhjxancçxas",
+      "image": "/static/media/2.e1e555d1ac4b0c12e7cd.jpg",
+      "cost": 500,
+      "services": [
+        {
+          "name": "Vender morangos",
+          "cost": 500,
+          "description": "kdnsçda",
+          "end": "2023-06-01",
+          "start": "2023-05-30",
+          "id": "8e4c02c4-8e8e-416c-922d-fecc1001f711",
+          "status": "confirmed"
+        }
+      ],
+      "id": 4,
+      "status": "confirmed"
     }
   ]
 }
