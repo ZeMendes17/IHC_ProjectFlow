@@ -1,9 +1,7 @@
 # To run:
-"""
-In the directory projectflow/
-npm start
-npm run backend
-"""
+In the directory projectflow/ execute the following commands in different commandline tabs:
+### `npm start`
+### `npm run backend`
 
 # Getting Started with Create React App
 
